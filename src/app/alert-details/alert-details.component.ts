@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/product';
 
 @Component({
@@ -11,13 +11,20 @@ export class AlertDetailsComponent implements OnInit {
   @Input()
   product!: Product;
 
+  @Output()
+  notify = new EventEmitter<Product>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  checkAvailability() {
-    window.alert(this.product.name+" Course videos are available in your location to purchase");
-  }
+  // checkAvailability() {
+  //   window.alert(this.product.name+" Course videos are available in your location to purchase");
+  // }
+
+    availButtonClicked() {
+      this.notify.emit(this.product);
+    }
 
 }

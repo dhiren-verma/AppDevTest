@@ -17,4 +17,8 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  checkAvailability(product: Product) {
+    window.alert(product.name+" Course videos are available in your location to purchase");
+  }
+
 }

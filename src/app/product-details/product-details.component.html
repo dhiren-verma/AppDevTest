@@ -5,7 +5,7 @@
   <h2>{{product.price}}</h2>
   <h2>{{product.description}}</h2>
   <!--Child Component Code-->
-  <app-alert-details [product]="product"></app-alert-details>
+  <app-alert-details [product]="product" (notify) = 'checkAvailability(product)'></app-alert-details>
   <br>
 </div>
 
