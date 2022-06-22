@@ -1,11 +1,16 @@
 <h1>{{title}}</h1>
 
+<button (click)="enaDisBuying()">Enable/Disable Buying</button>
+
 <div *ngFor="let product of products">
   <h2>{{product.name}}</h2>
   <h2>{{product.price}}</h2>
   <h2>{{product.description}}</h2>
   <!--Child Component Code-->
-  <app-alert-details [product]="product" (notify) = 'checkAvailability(product)'></app-alert-details>
+  <app-alert-details
+    [product]="product"
+    [isUnchanged] = isUnchanged
+    (notify) = 'checkAvailability(product)'></app-alert-details>
   <br>
 </div>
 

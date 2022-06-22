@@ -1,4 +1,45 @@
 <p *ngIf="product.price<700">Course is available for Discount!</p>
-<button
-  *ngIf="product.quantity>0"
-  (click)="availButtonClicked()">Check Availability</button>
+
+<!--
+  * A special element that can hold structural directives without adding new elements
+    to the DOM. This not only increases performance since the browser ends up rendering
+    less elements but can also be a valuable asset in having cleaner DOMs and styles alike.
+-->
+<ng-container *ngIf="product.quantity>0 then template1 else template2"></ng-container>
+
+<!--
+  * ng-template is a virtual element, and its content are displayed only when needed
+    (based on conditions).
+  * ng-template should be used along with structural components or custom structural
+    components.
+  * ng-template is an internal implementation of Angular, and is never meant to be
+    used like HTML.
+  * When we use a structural directive, we add a prefix asterisk(*) before the directive
+    name. This asterisk is short-hand notation for ng-template.
+  * Whenever Angular encounters asterisk(*) symbol, we are informing Angular saying that
+    it is a structural directive, and Angular will convert directive attribute to
+    ng-template element.
+  * ng-template is not exactly a true web element. When we compile our code, we will not
+    see a ng-template tag in HTML DOM.
+  * Angular will evaluate the ng-template tag to  convert it into a comment section in HTML
+    DOM.
+
+    Example implementation:
+    <div *ngIf="display" class="ng-template-example">
+      ng-template example
+    </div>
+
+    <ng-template [ngIf]="display">
+      <div class="ng-template-example">ng-template example</div>
+    </ng-template>
+  -->
+<!-- Template Variables to uniquely identify Templates -->
+<ng-template #template1>
+  <button
+    [disabled]=isUnchanged
+    (click)="availButtonClicked()">Check Availability</button>
+</ng-template>
+
+<ng-template #template2>
+  <p>Product is not available to buy!</p>
+</ng-template>

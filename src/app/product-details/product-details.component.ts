@@ -10,7 +10,8 @@ import { Product } from 'src/product';
 export class ProductDetailsComponent implements OnInit {
 
   title: string = "E-Comm App!";
-  products : Product[] = products;
+  products: Product[] = products;
+  isUnchanged: boolean = true;
 
   constructor() { }
 
@@ -19,6 +20,10 @@ export class ProductDetailsComponent implements OnInit {
 
   checkAvailability(product: Product) {
     window.alert(product.name+" Course videos are available in your location to purchase");
+  }
+
+  enaDisBuying() {
+    this.isUnchanged = !this.isUnchanged;
   }
 
 }

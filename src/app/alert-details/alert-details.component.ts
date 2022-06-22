@@ -11,6 +11,9 @@ export class AlertDetailsComponent implements OnInit {
   @Input()
   product!: Product;
 
+  @Input()
+  isUnchanged!: boolean;
+
   @Output()
   notify = new EventEmitter<Product>();
 
@@ -23,8 +26,8 @@ export class AlertDetailsComponent implements OnInit {
   //   window.alert(this.product.name+" Course videos are available in your location to purchase");
   // }
 
-    availButtonClicked() {
-      this.notify.emit(this.product);
-    }
+  availButtonClicked() {
+    this.notify.emit(this.product);
+  }
 
 }
