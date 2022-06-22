@@ -1,0 +1,16 @@
+Interpolation:
+  Text Interpolation allows us to incorporate Dynamic String values into our HTML templates.
+  By default, interpolation uses the double curly braces {{ and }} as delimiters.
+
+Built-in Structural Directives:
+  Structural Directives are responsible for HTML layout. They shape or reshape the DOM's
+  structure, typically by adding, removing, and manipulating the host elements to which
+  they are attached.
+
+  * NgIf      - conditionally creates or disposes of subviewsfrom the template.
+  * NgFor     - repeat a node for each item in provided list.
+  * NgSwitch  - a set of directives that switch amoung alternative views.
+
+Sharing Data between child and parent Directives and Components:
+  A common pattern in angular is sharing data between a parent component and one or more
+  child components. We can implement this pattern by using @Input() and @Output() directives.

@@ -1,13 +1,12 @@
-<p>{{title}}</p>
+<h1>{{title}}</h1>
 
-<h2>{{products[0].name}}</h2>
-<h2>{{products[0].price}}</h2>
-<h2>{{products[0].description}}</h2>
-<br>
+<div *ngFor="let product of products">
+  <h2>{{product.name}}</h2>
+  <h2>{{product.price}}</h2>
+  <h2>{{product.description}}</h2>
+  <p *ngIf="product.price<700">Course is available for Discount!</p>
+  <button *ngIf="product.quantity>0">Check Availability</button>
+  <br>
+</div>
 
-<h2>{{products[1].name}}</h2>
-<h2>{{products[1].price}}</h2>
-<h2>{{products[1].description}}</h2>
-<br>
-
-<p>Under Development...</p>
+<h1>Under Development...</h1>

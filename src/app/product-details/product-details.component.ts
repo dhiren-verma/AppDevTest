@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { products } from 'src/data/products';
+import { product } from 'src/product';
 
 @Component({
   selector: 'app-product-details',
@@ -9,7 +10,7 @@ import { products } from 'src/data/products';
 export class ProductDetailsComponent implements OnInit {
 
   title: string = "E-Comm App!";
-  products = products;
+  products : product[] = products;
 
   constructor() { }
 
